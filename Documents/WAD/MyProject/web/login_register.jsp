@@ -7,32 +7,10 @@
     <title></title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script type="text/javascript">
-      function validatePassword(){
-        var pass = document.getElementById("pass").value;
-        var rpass = document.getElementById("rpass").value;
-        var span = document.getElementById("passValidate");
-
-        if(pass == rpass){
-          span.style.color = 'green';
-          span.innerHTML = "Password OK";
-          return true;
-        }
-        else{
-          span.style.color = 'red';
-          span.innerHTML = "Passwords do not match!";
-          return false;
-        }
-        if(pass == '' || rpass == ''){
-          span.innerHTML = '';
-        }
-        return false;
-      }
-    </script>
+    <script type="text/javascript" src="js/script.js"></script>
   </head>
   <body>
       <%@include file="header.jsp" %>
-      <div class="bar"></div>
       <div class="container-fluid">
         <h1>Please sign in or create a new account</h1>
         <div class="row">
@@ -50,7 +28,6 @@
               <div class="sub">
                 <input type="submit" name="signin" value="Log in">
               </div>
-
             </form>
           </div>
           <div class="col-md-6 logreg">
@@ -84,6 +61,7 @@
           </div>
         </div>
       </div>
+      
       <div class="bar"></div>
       <%@include file="footer.jsp" %>
       <div class="divi"></div>
