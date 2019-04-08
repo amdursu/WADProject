@@ -106,22 +106,24 @@
           <div class="bar"></div>
           <footer>
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <img src="img/logo.png" alt="LOGO">
                 </div>
-                <div class="col-md-2 afoot">
-                    <a href="home.jsp">HOME</a>
-                </div>
-                <div class="col-md-2 afoot">
-                    <a href="#">CARS</a>
-                </div>
-                <div class="col-md-2 afoot">
+                <div class="col-md-4 afoot">
+                    <a href="home.jsp">HOME</a><br>
+                    <a href="manufacturers.jsp">CARS</a><br>
                     <a href="login_register.jsp">ACCOUNT</a>
                 </div>
-                <div class="col-md-2 afoot">
-                    <a href="#">CONTACT</a>
+                <div class="col-md-1">
+                    <img src="img/fb.png" alt="Facebook">
                 </div>
-                <div class="col-md-2 copy">
+                <div class="col-md-1">
+                    <img src="img/insta.png" alt="Instagram">
+                </div>
+                <div class="col-md-1">
+                    <img src="img/twitter.png" alt="Twitter">
+                </div>
+                <div class="col-md-3 copy">
                     <p>COPYRIGHT © ANDREI URSU</p>
                 </div>
             </div>

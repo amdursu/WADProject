@@ -34,33 +34,7 @@
         </script>
     </head>
     <body>
-        <div class="head">
-        <header>
-          <div class="row myhead">
-            <div class="col-md-2">
-              <img src="img/logo.png" alt="LOGO">
-            </div>
-            <div class="col-md-2 headelem">
-              <a class="nav-item nav-link" href="home.jsp">HOME</a>
-            </div>
-            <div class="col-md-2 headelem">
-              <a class="nav-item nav-link" href="#">CARS</a>
-            </div>
-            <div class="col-md-2 headelem">
-              <a class="nav-item nav-link" href="login_register.jsp">ACCOUNT</a>
-            </div>
-            <div class="col-md-4">
-              <form method="post">
-                <span>
-                  <input type="search" class="search" name="search" placeholder="Search">
-                  <input type="submit" class="searchbutton" name="src" value=" ">
-                </span>
-              </form>
-            </div>
-
-          </div>
-        </header>
-      </div>
+        <%@include file="header.jsp" %>
       <div class="bar"></div>
       <div class="container-fluid">
         <h1>Please sign in or create a new account</h1>
@@ -117,30 +91,7 @@
         </div>
       </div>
       <div class="bar"></div>
-      <div class="navbar-fixed-bottom">
-          <footer>
-            <div class="row">
-                <div class="col-md-1">
-                    <img src="img/logo.png" alt="LOGO">
-                </div>
-                <div class="col-md-2 afoot">
-                    <a href="home.jsp">HOME</a>
-                </div>
-                <div class="col-md-2 afoot">
-                    <a href="#">CARS</a>
-                </div>
-                <div class="col-md-2 afoot">
-                    <a href="login_register.jsp">ACCOUNT</a>
-                </div>
-                <div class="col-md-2 afoot">
-                    <a href="#">CONTACT</a>
-                </div>
-                <div class="col-md-2 copy">
-                    <p>COPYRIGHT © ANDREI URSU</p>
-                </div>
-            </div>
-        </footer>
-      </div>   
+      <%@include file="footer.jsp" %>
       <div class="divi"></div>
     </body>
 </html>
