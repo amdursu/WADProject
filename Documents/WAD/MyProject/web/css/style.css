@@ -1,0 +1,286 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.head img{
+  height: 100px;
+  width: auto;
+}
+
+.head{
+  text-align: center;
+}
+
+header{
+  width: 100%;
+  background-image: url("../img/vb.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.head a{
+  margin-top: 25px;
+  color: #CA2B2B;
+  font-size: 24px;
+}
+
+.head form{
+  margin-top: 33px;
+}
+
+.head a:hover{
+  color: #FFC81E;
+}
+
+.headelem:hover{
+  border-bottom: 4px solid #FFC81E;
+}
+
+.search{
+  border: 2px solid #EC8779;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #EC8779;
+}
+
+.search:focus {
+  border: 2px solid #FFC81E;
+  border-radius: 10px;
+}
+
+.search::placeholder{
+  color: #CA2B2B;
+}
+
+.searchbutton{
+    margin-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 0px solid white;
+    background-color: transparent;
+    background-image: url("../img/src.png");
+    background-size: auto;
+    background-repeat: round;
+}
+
+.searchbutton:hover{
+  border-bottom: 4px solid #FFC81E;
+}
+
+.container-fluid{
+  width: 100%;
+  background-image: url("../img/vb.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #3E153C;
+  flex: 1 0 auto;
+}
+
+.container-fluid h1{
+  padding-top: 20px;
+  text-align: center;
+  text-decoration: overline;
+  font-size: 30px;
+}
+
+.container-fluid h2{
+    padding-top: 20px; 
+    text-decoration: overline;
+    font-size: 25px;
+    padding-bottom: 10px;
+    margin: 0;
+    float: left;
+}
+
+.fav{
+    clear: both;
+    margin-top: 70px; 
+    margin-left: 80px;
+    text-decoration: overline;
+    font-size: 18px;
+}
+
+.logreg{
+  width: 50%;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.logreg h3{
+  text-decoration: overline;
+  padding-bottom: 30px;
+  margin-left: 40px;
+}
+
+.formelem{
+  margin-top: 10px;
+}
+
+.formelem label{
+  display: inline-block;
+  float: left;
+  clear: left;
+  text-align: right;
+  width: 20%;
+  margin-top: 24px;
+}
+
+.formelem input{
+  display: inline-block;
+  float: left;
+  margin-left: 15px;
+  margin-top: 20px;
+  background-color: transparent;
+  border: 2px solid #3E153C;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+#passValidate{
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-top: 26px;
+}
+
+.sub{
+  width: 50%;
+  text-align: center;
+  padding-top: 30px;
+  clear: both;
+}
+
+.sub input{
+    background-color: #EC8779;
+    border: 0px solid white;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #3E153C;
+}
+
+.logout{
+    background-color: #EC8779;
+    border: 0px solid white;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #3E153C;
+    float: right;
+    margin: 20px 20px 0px 0px;
+}
+
+.logout:hover{
+    text-decoration: none;
+    color: #3E153C;
+}
+
+.bar{
+    width: 100%;
+    height: 10px;
+    margin: 0;
+    background-color: #3E153C;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer{
+    width: 100%;
+    background-image: url("../img/vb.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+footer:after{
+    content: none;
+}
+
+footer img{
+    margin-left: 30px;
+    width: auto;
+    height: 80px;
+}
+
+
+.afoot {
+    color: #CA2B2B;
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+.afoot a{
+    color: #CA2B2B;
+}
+
+.afoot a:hover{
+    color: #FFC81E;
+    text-decoration: none;
+}
+
+.copy{
+    float: right;
+    font-size: 15px;
+    margin-top: 28px;
+}
+
+.divi{
+    background-image: url("../img/vb.jpg");
+    background-size: cover;
+    height: 10px;
+}
+
+.logreg p{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 0px solid white;
+    border-radius: 5px;
+    background-color: #EC8779;
+}
+
+.err{
+    width: 50%;
+    margin-left: 20px;
+}
+
+.cont{
+    margin-top: 50px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome{
+    text-align: justify;
+    font-size: 20px;
+}
+
+.mans{
+    text-align: center;
+    margin: 0 0 50px 0;
+}
+
+.mans img{
+    width: 250px;
+    height: auto;
+    border: 2px solid #CA2B2B;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 20px;
+}
