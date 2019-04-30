@@ -15,7 +15,6 @@
     </head>
     <body>
       <%@include file="header.jsp" %>
-      <div class="bar"></div>
       <div class="container-fluid">
           <div class='cont'>
               <p class="welcome">Welcome to our website. Here you can discover car manufacturers, car models, user reviews, our users' top favorites. 
@@ -23,7 +22,6 @@
           </div>
           <h3 class='fav'>Our users' top favorite cars:</h3>
       </div>
-      
       <div class="bar"></div>
       <%@include file="footer.jsp" %>
     </body>

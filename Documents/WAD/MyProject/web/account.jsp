@@ -15,15 +15,12 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-      <div class="bar"></div>
       <div class="container-fluid">
         <h2>Hello,<%= request.getSession().getAttribute("USER")%>!</h2>
         <a href="LogoutController" class="logout">Logout</a>
         <h3 class="fav">Favorite cars list:</h3>
       </div>
-      
-      <div class="bar"></div>
-      
+        <div class="bar"></div>
       <%@include file="footer.jsp" %> 
     </body>
 </html>

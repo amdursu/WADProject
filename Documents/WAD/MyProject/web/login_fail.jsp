@@ -12,30 +12,10 @@
         <title>Account</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <script type="text/javascript">
-          function validatePassword(){
-            var pass = document.getElementById("pass").value;
-            var rpass = document.getElementById("rpass").value;
-            var span = document.getElementById("passValidate");
-
-            if(pass == rpass){
-              span.style.color = 'green';
-              span.innerHTML = "Password OK";
-            }
-            else{
-              span.style.color = 'red';
-              span.innerHTML = "Passwords do not match!";
-            }
-            if(pass == '' || rpass == ''){
-              span.innerHTML = '';
-            }
-            return pass === rpass;
-          }
-        </script>
+        <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body>
         <%@include file="header.jsp" %>
-      <div class="bar"></div>
       <div class="container-fluid">
         <h1>Please sign in or create a new account</h1>
         <div class="row">

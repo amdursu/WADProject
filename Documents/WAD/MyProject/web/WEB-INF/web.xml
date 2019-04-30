@@ -4,6 +4,10 @@
         <description>ServletContextListener</description>
         <listener-class>listeners.ManufacturersListener</listener-class>
     </listener>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>listeners.CarsListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>RegistrationController</servlet-name>
         <servlet-class>controllers.RegistrationController</servlet-class>
@@ -16,6 +20,10 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>controllers.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManufacturerController</servlet-name>
+        <servlet-class>controllers.ManufacturerController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrationController</servlet-name>
         <url-pattern>/RegistrationController</url-pattern>
@@ -27,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManufacturerController</servlet-name>
+        <url-pattern>/ManufacturerController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

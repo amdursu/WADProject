@@ -1,53 +1,59 @@
 <%-- 
-    Document   : manufacturers
-    Created on : 07-Apr-2019, 21:04:44
+    Document   : manufacturer
+    Created on : 22-Apr-2019, 17:29:29
     Author     : andrei
 --%>
 
+<%@page import="classes.Car"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="classes.Manufacturer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script type="text/javascript" src="js/script.js"></script>
-  </head>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script type="text/javascript" src="js/script.js"></script>
+        <% Manufacturer m = (Manufacturer) request.getAttribute("manufacturer"); %>
+        
+        <title><%= m.getName()%> Cars</title>
+    </head>
     <body>
         <%@include file="header.jsp" %>
-      <div class="container-fluid">
+        <div class="container-fluid">
+           <h1><%= m.getName()%></h1>
           <div class='cont'>
-              <p class='welcome'>Here is a list of our selected car manufacturers. Each of them contain some of the most famous models produced.</p>
+              <p class='welcome'>Here is a list of our selected <%= m.getName() %> cars. Click on any of them to see more details, to configure or even add a review.</p>
           </div>
-          <div class='item'>
+        <div class='cars'>
               <form action="ManufacturerController" method="post">
                 <div class="row">
                 <%
-                    ArrayList<Manufacturer> manufacturers = (ArrayList<Manufacturer>) getServletContext().getAttribute("manufacturers");
+                    ArrayList<Car> cars = (ArrayList<Car>) getServletContext().getAttribute("cars");
                     int i = 0;
-                    for(Manufacturer m : manufacturers){
-                        if(i % 4 == 0 && i != 0){
+                    for(Car c : cars){
+                        if(c.getManufacturer().equals(m.getName())){
+                            String s = c.getManufacturer() + " " + c.getModel();
+                            if(i % 3 == 0 && i != 0){
                 %>
                 </div>
                 <div class='row'> <% } %>
 
-                <div class='col-md-3 manufacturer'>
-                    <button type="submit" name="<%= m.getName()%>">
-                        <img src='<%= m.getImgPath()%>' alt="<%= m.getName()%>">
-                        <h3>See car models</h3>
+                <div class='col-md-4 car'>
+                    <button type="submit" name="<%= c.getModel() %>">
+                        <img src='<%= c.getImg() %>' alt="<%= c.getModel() %>">
+                        <h3>See car model</h3>
                     </button>
-                    
+                    <h2><%= s %></h2>
                 </div>
-                <% i++; } %>
+                <% i++; }} %>
                 </div>
               </form>
           </div>
-      </div>
-      
-      <div class="navbar-fixed-bottom">
+        </div>
+        <div class="bar"></div>
+        <div class="navbar-fixed-bottom">
           <div class="bar"></div>
           <footer>
             <div class="row">
@@ -73,6 +79,6 @@
                 </div>
             </div>
         </footer>
-      </div>   
+      </div>
     </body>
 </html>

@@ -132,14 +132,14 @@ header{
   clear: left;
   text-align: right;
   width: 20%;
-  margin-top: 24px;
+  margin-top: 15px;
 }
 
 .formelem input{
   display: inline-block;
   float: left;
   margin-left: 15px;
-  margin-top: 20px;
+  margin-top: 12px;
   background-color: transparent;
   border: 2px solid #3E153C;
   border-radius: 8px;
@@ -192,7 +192,6 @@ header{
 .bar{
     width: 100%;
     height: 10px;
-    margin: 0;
     background-color: #3E153C;
     background-repeat: no-repeat;
     background-size: cover;
@@ -261,9 +260,10 @@ footer img{
 
 .cont{
     margin-top: 50px;
-    width: 70%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 .welcome{
@@ -271,16 +271,102 @@ footer img{
     font-size: 20px;
 }
 
-.mans{
+.item{
     text-align: center;
     margin: 0 0 50px 0;
 }
 
-.mans img{
-    width: 250px;
+.item button{
+    border: 0;
+    background: none;
+    width: 310px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.item img{
+    width: 100%;
     height: auto;
     border: 2px solid #CA2B2B;
-    border-radius: 8px;
-    margin-top: 20px;
+    border-radius: 7px;
     padding: 20px;
+}
+
+.manufacturer img{
+    transition: .3s;
+}
+
+.manufacturer:hover img{
+    filter: blur(4px) brightness(50%);
+    box-shadow: 0 0 25px red;
+}
+
+.manufacturer h3{
+    border: 2px solid #CA2B2B;
+    border-radius: 5px;
+    background-color: #CA2B2B;
+    padding: 10px;
+    font-size: 18px;
+    position: absolute;
+    top: 44%;
+    left: 30%;
+    opacity: 0;
+    transition: .5s;
+}
+
+.manufacturer:hover h3{
+    opacity: 1;
+}
+
+.cars{
+    text-align: center;
+    margin: 0 0 50px 0;
+}
+
+.car{
+    text-align: center;
+}
+
+.cars button{
+    border: 0;
+    background: none;
+    width: 450px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.cars img{
+    width: 100%;
+    height: auto;
+    border: 2px solid #CA2B2B;
+    border-radius: 7px;
+    transition: .3s;
+}
+
+.car:hover img{
+    filter: blur(4px) brightness(50%);
+    box-shadow: 0 0 25px red;
+}
+
+.car h3{
+    border: 2px solid #CA2B2B;
+    border-radius: 5px;
+    background-color: #CA2B2B;
+    padding: 10px;
+    font-size: 18px;
+    position: absolute;
+    top: 38%;
+    left: 35%;
+    opacity: 0;
+    transition: .5s;
+}
+
+.car:hover h3{
+    opacity: 1;
+}
+
+.car h2{
+    font-size: 22px;
+    width: 100%;
+    margin: 0 auto;
 }

@@ -41,4 +41,5 @@
 
           </div>
         </header>
+            <div class="bar"></div>
       </div>
