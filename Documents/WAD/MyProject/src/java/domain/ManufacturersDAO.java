@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package classes;
+package domain;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,4 +42,15 @@ public class ManufacturersDAO {
         }
         return manufacturers;
     }
+    
+    public static void addManufacturer(String name, String image) throws NamingException, SQLException{
+        String sql = "INSERT INTO manufacturers (name, image_path) VALUES (?, ?);";
+        Connection c = DBConnection.getConnection();
+        PreparedStatement instr = c.prepareStatement(sql);
+        instr.setString(1, name);
+        instr.setString(2, image);
+        instr.execute();
+    }
+    
+    
 }

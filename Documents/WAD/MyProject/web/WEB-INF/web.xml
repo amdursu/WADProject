@@ -2,11 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <listener>
         <description>ServletContextListener</description>
-        <listener-class>listeners.ManufacturersListener</listener-class>
-    </listener>
-    <listener>
-        <description>ServletContextListener</description>
-        <listener-class>listeners.CarsListener</listener-class>
+        <listener-class>listeners.DataListener</listener-class>
     </listener>
     <servlet>
         <servlet-name>RegistrationController</servlet-name>
@@ -24,6 +20,38 @@
         <servlet-name>ManufacturerController</servlet-name>
         <servlet-class>controllers.ManufacturerController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ModelController</servlet-name>
+        <servlet-class>controllers.ModelController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>controllers.SearchController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FavoriteController</servlet-name>
+        <servlet-class>controllers.FavoriteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddController</servlet-name>
+        <servlet-class>controllers.AddController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddManufacturer</servlet-name>
+        <servlet-class>controllers.AddManufacturer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCar</servlet-name>
+        <servlet-class>controllers.AddCar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddDrivetrain</servlet-name>
+        <servlet-class>controllers.AddDrivetrain</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddReview</servlet-name>
+        <servlet-class>controllers.AddReview</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrationController</servlet-name>
         <url-pattern>/RegistrationController</url-pattern>
@@ -39,6 +67,38 @@
     <servlet-mapping>
         <servlet-name>ManufacturerController</servlet-name>
         <url-pattern>/ManufacturerController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModelController</servlet-name>
+        <url-pattern>/ModelController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>/SearchController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FavoriteController</servlet-name>
+        <url-pattern>/FavoriteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddController</servlet-name>
+        <url-pattern>/AddController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddManufacturer</servlet-name>
+        <url-pattern>/AddManufacturer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCar</servlet-name>
+        <url-pattern>/AddCar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddDrivetrain</servlet-name>
+        <url-pattern>/AddDrivetrain</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddReview</servlet-name>
+        <url-pattern>/AddReview</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

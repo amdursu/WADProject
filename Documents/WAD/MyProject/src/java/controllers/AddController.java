@@ -5,13 +5,8 @@
  */
 package controllers;
 
-import static domain.DrivetrainDAO.computePopularity;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author andrei
  */
-public class LogoutController extends HttpServlet {
+public class AddController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,15 +28,18 @@ public class LogoutController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, NamingException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        request.getSession().setAttribute("USER", null);
-        request.getSession().setAttribute("FAVORITES", null);
-        request.getSession().setAttribute("ADMIN", null);
-        request.getSession().setAttribute("OWNER", null);
-        request.getRequestDispatcher("login_register.jsp").forward(request, response);
-        
+        if(request.getParameter("newManufacturer") != null){
+            request.getRequestDispatcher("add_manufacturer.jsp").forward(request, response);
+        }
+        else if(request.getParameter("newCar") != null){
+            request.getRequestDispatcher("add_car.jsp").forward(request, response);
+        }
+        else if(request.getParameter("newDrivetrain") != null){
+            request.getRequestDispatcher("add_drivetrain.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -56,13 +54,7 @@ public class LogoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (NamingException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -76,13 +68,7 @@ public class LogoutController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (NamingException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

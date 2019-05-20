@@ -5,10 +5,14 @@
  */
 package controllers;
 
-import static domain.DrivetrainDAO.computePopularity;
+import domain.Car;
+import domain.Drivetrain;
+import static domain.DrivetrainDAO.addDrivetrain;
+import static domain.DrivetrainDAO.getDrivetrains;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.NamingException;
@@ -21,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author andrei
  */
-public class LogoutController extends HttpServlet {
+public class AddDrivetrain extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,11 +40,18 @@ public class LogoutController extends HttpServlet {
             throws ServletException, IOException, NamingException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         
-        request.getSession().setAttribute("USER", null);
-        request.getSession().setAttribute("FAVORITES", null);
-        request.getSession().setAttribute("ADMIN", null);
-        request.getSession().setAttribute("OWNER", null);
-        request.getRequestDispatcher("login_register.jsp").forward(request, response);
+        String model = request.getParameter("model");
+        String engine = request.getParameter("engine");
+        String transmission = request.getParameter("transmission");
+        String power = request.getParameter("power");
+        String torque = request.getParameter("torque");
+        
+        ArrayList<Drivetrain> drivetrains = (ArrayList<Drivetrain>) getDrivetrains(model);
+        
+        Drivetrain d = new Drivetrain(model, engine, transmission, Integer.parseInt(power), Integer.parseInt(torque), 0);
+        
+        addDrivetrain(model, engine, transmission, power, torque);
+        
         
     }
 
@@ -59,9 +70,9 @@ public class LogoutController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NamingException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddDrivetrain.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddDrivetrain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -79,9 +90,9 @@ public class LogoutController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NamingException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddDrivetrain.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddDrivetrain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

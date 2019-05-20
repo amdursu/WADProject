@@ -5,14 +5,21 @@
  */
 package controllers;
 
-import static classes.DBHandler.getName;
-import static classes.DBHandler.login;
-import static classes.DBHandler.register;
-import static classes.DBHandler.sha1;
+import static domain.DBHandler.getName;
+import static domain.DBHandler.isAdmin;
+import static domain.DBHandler.isOwner;
+import static domain.DBHandler.login;
+import static domain.DBHandler.register;
+import static domain.DBHandler.sha1;
+import domain.DrivetrainDAO;
+import static domain.DrivetrainDAO.computePopularity;
+import static domain.FavoritesDAO.getUserFavorites;
+import domain.PopularityItem;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.NamingException;
@@ -36,13 +43,35 @@ public class LoginController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NoSuchAlgorithmException, NamingException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-            /* TODO output your page here. You may use following sample code. */
-            if(login(request.getParameter("mail"), sha1(request.getParameter("password")).toLowerCase())){
-                request.getSession().setAttribute("USER", getName(request.getParameter("mail").toString()));
-                request.getRequestDispatcher("account.jsp").forward(request, response);
+           
+        String email = request.getParameter("mail");
+            
+            if(login(email, sha1(request.getParameter("password")).toLowerCase())){
+                if(!isAdmin(email) && !isOwner(email)){
+                    request.getSession().setAttribute("USER", email);
+                    request.getSession().setAttribute("FAVORITES", getUserFavorites(email));
+                    request.getSession().setAttribute("ADMIN", null);
+                    request.getSession().setAttribute("OWNER", null);
+                    request.getRequestDispatcher("account.jsp").forward(request, response);
+                }
+                else if(isAdmin(email)){
+                    request.getSession().setAttribute("USER", email);
+                    request.getSession().setAttribute("ADMIN", true);
+                    request.getSession().setAttribute("OWNER", false);
+                    request.getRequestDispatcher("account.jsp").forward(request, response);
+                }
+                else if(isOwner(email)){
+                    request.getSession().setAttribute("USER", email);
+                    request.getSession().setAttribute("ADMIN", false);
+                    request.getSession().setAttribute("OWNER", true);
+                    request.getRequestDispatcher("account.jsp").forward(request, response);
+                }
+                
             }
             else{
                 String message = "Wrong email and password combination!";

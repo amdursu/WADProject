@@ -31,7 +31,7 @@
               <% } %>
             </div>
             <div class="col-md-4">
-              <form method="post">
+              <form action="SearchController" method="post">
                 <span>
                   <input type="search" class="search" name="search" placeholder="Search">
                   <input type="submit" class="searchbutton" name="src" value=" ">

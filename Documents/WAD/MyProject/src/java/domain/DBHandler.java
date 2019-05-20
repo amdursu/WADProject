@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package classes;
+package domain;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -76,12 +76,77 @@ public class DBHandler {
     }
     
     public static String getName(String email) throws NamingException, SQLException{
-        String sql = "SELECT name FROM users WHERE email='" + email + "';";
+        String sql = "SELECT name FROM users WHERE email = '" + email + "';";
         Connection c = DBConnection.getConnection();
         Statement instr = c.createStatement();
         ResultSet rs = instr.executeQuery(sql);
         
         rs.next();
         return rs.getString("name");
+    }
+    
+    public static boolean isAdmin(String email) throws NamingException, SQLException{
+        String sql = "SELECT email FROM users WHERE type = 'admin';";
+        Connection c = DBConnection.getConnection();
+        Statement instr = c.createStatement();
+        ResultSet rs = instr.executeQuery(sql);
+        
+        while (rs.next()){
+            if(rs.getString("email").equals(email)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static boolean isOwner(String email) throws NamingException, SQLException{
+        String sql = "SELECT email FROM users WHERE type = 'owner';";
+        Connection c = DBConnection.getConnection();
+        Statement instr = c.createStatement();
+        ResultSet rs = instr.executeQuery(sql);
+        
+        while (rs.next()){
+            if(rs.getString("email").equals(email)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static int noUsers() throws NamingException, SQLException{
+        String sql = "SELECT COUNT(*) FROM users WHERE type = 'user';";
+        Connection c = DBConnection.getConnection();
+        Statement instr = c.createStatement();
+        ResultSet rs = instr.executeQuery(sql);
+        while(rs.next()){
+            System.out.println(rs.getInt("COUNT(*)"));
+            return rs.getInt("COUNT(*)");
+        }
+        return 0;
+    }
+    
+    public static int getUserID(String email) throws NamingException, SQLException{
+        String sql = "SELECT id, email FROM users;";
+        Connection c = DBConnection.getConnection();
+        Statement instr = c.createStatement();
+        ResultSet rs = instr.executeQuery(sql);
+        while(rs.next()){
+            if(rs.getString("email").equals(email)){
+                return rs.getInt("id");
+            }
+        }
+        return 0;
+    }
+    
+    public static String getUserName(int userID) throws NamingException, SQLException{
+        String sql = "SELECT name, surname FROM users WHERE id = " + userID + ";";
+        String name = "";
+        Connection c = DBConnection.getConnection();
+        Statement instr = c.createStatement();
+        ResultSet rs = instr.executeQuery(sql);
+        while(rs.next()){
+            name = rs.getString("name") + " " + rs.getString("surname");
+        }
+        return name;
     }
 }

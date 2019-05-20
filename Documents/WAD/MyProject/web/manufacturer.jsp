@@ -4,9 +4,9 @@
     Author     : andrei
 --%>
 
-<%@page import="classes.Car"%>
+<%@page import="domain.Car"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="classes.Manufacturer"%>
+<%@page import="domain.Manufacturer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@
               <p class='welcome'>Here is a list of our selected <%= m.getName() %> cars. Click on any of them to see more details, to configure or even add a review.</p>
           </div>
         <div class='cars'>
-              <form action="ManufacturerController" method="post">
+              <form action="ModelController" method="post">
                 <div class="row">
                 <%
                     ArrayList<Car> cars = (ArrayList<Car>) getServletContext().getAttribute("cars");
@@ -49,7 +49,7 @@
                 </div>
                 <% i++; }} %>
                 </div>
-              </form>
+             </form>
           </div>
         </div>
         <div class="bar"></div>

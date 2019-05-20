@@ -258,6 +258,22 @@ footer img{
     margin-left: 20px;
 }
 
+.ef{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 1px;
+    border: 0px solid white;
+    border-radius: 5px;
+    background-color: #EC8779;
+}
+
+.ef p{
+    margin-top: 6px;
+}
+
 .cont{
     margin-top: 50px;
     width: 75%;
@@ -369,4 +385,352 @@ footer img{
     font-size: 22px;
     width: 100%;
     margin: 0 auto;
+}
+
+.photo{
+    text-align: center;
+    float: left;
+    width: 50%;
+}
+
+.description{
+    text-align:justify;
+    float: left;
+    width: 40%;
+    font-size: 20px;
+}
+
+.intro{
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.photo img{
+    width: 600px;
+    height: auto;
+    border: 2px solid #CA2B2B;
+    border-radius: 7px;
+}
+
+.modalTitle{
+    width: 100%;
+    text-align: center;
+}
+
+.addFavorite {
+    width: 100%;
+    text-align: center;
+}
+
+.dismiss{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    top: 5px;
+    right: 10px;
+}
+
+.myModal{
+    background-image: url("../img/modal.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: purple;
+}
+
+
+
+.dtinfo{
+    width: 15px;
+    
+}
+
+
+.left{
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    background: orangered;
+    border: 0px solid white;
+    border-radius: 7px;
+    background-image: url("../img/drivetrain.jpg");
+    background-size: cover;
+    background-repeat: none;
+    color: purple;
+}
+
+.left label{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.right{
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 150px;
+    margin-right: 100px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    background: orangered;
+    border: 0px solid white;
+    border-radius: 7px;
+    background-image: url("../img/drivetrain.jpg");
+    background-size: cover;
+    background-repeat: none;
+    color: purple;
+}
+
+.right label{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.modal-body{
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
+.dts{
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.dtsbtn{
+    
+    width: 600px;
+}
+
+.favorite label{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.favorite {
+    width: 100px;
+    padding: 30px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-image: url("../img/drivetrain.jpg");
+    background-size: cover;
+    background-repeat: none;
+    color: purple;
+}
+
+.favorite img{
+    width: 70%;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.mod{
+    width: 100%;
+    text-align: center;
+}
+
+.mod h2{
+    width: 100%;
+}
+
+.rand{
+    margin-top: 35px;
+    padding-left: 170px;
+    margin-bottom: 35px;
+}
+
+.det{
+    width: 100%;
+    text-align: center;
+}
+
+.admin{
+    width: 100%;
+    height: 100%;
+}
+
+.newMan{
+    margin-top: 150px;
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.newCar{
+    margin-top: 150px;
+    width: 50%;
+    float: right;
+    text-align: center;
+}
+
+.newDrivetrain{
+    margin-top: 150px;
+    width: 50%;
+    float: right;
+    text-align: center;
+}
+
+.formcont{
+  margin-top: 100px;
+}
+
+.formcont textarea{
+    margin-left: 15px;
+    display: inline-block;
+    float: left;
+    margin-top: 12px;
+    background-color: transparent;
+    border: 2px solid #3E153C;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.addtext{
+    margin-top: 10px;
+}
+
+.addtext label{
+  display: inline-block;
+  float: left;
+  clear: left;
+  text-align: right;
+  width: 20%;
+  margin-top: 15px;
+}
+
+.addtext input{
+  display: inline-block;
+  float: left;
+  margin-left: 15px;
+  margin-top: 12px;
+  background-color: transparent;
+  border: 2px solid #3E153C;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.addimg{
+    clear: both;
+    margin-top: 40px;
+    margin-left: 133px;
+}
+
+.addimg label{
+    margin-right: 60px;
+}
+
+.addMan{
+    margin-left: 220px;
+    margin-top: 30px;
+}
+
+::-webkit-file-upload-button{
+    background-color: #EC8779;
+    border: 0px solid white;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #3E153C;
+}
+
+.submitdrive{
+  clear: both;
+}
+
+.noUsers h3{
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+.reviews{
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.reviews label{
+    margin-right: 10px;
+    display: inline-block;
+    float: left;
+    clear: left;
+    text-align: right;
+    width: 20%;
+    margin-top: 15px;
+}
+
+.rTitle input{
+    width: 60%;
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+    margin-top: 12px;
+    background-color: transparent;
+    border: 2px solid #3E153C;
+    border-radius: 8px;
+    padding: 5px;
+}
+.rBody textarea{
+    width: 60%;
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+    margin-top: 12px;
+    background-color: transparent;
+    border: 2px solid #3E153C;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.rSubmit{
+    clear: both;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.rSubmit button{
+    margin-top: 20px;
+}
+
+
+
+.review{
+    width: 80%;
+    display: inline-block;
+    padding: 30px;
+    border: 2px solid #3E153C;
+    border-radius: 7px;
+    margin-top: 30px;
+    text-align: left;
+    background-image: url("../img/review.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: purple;
+}
+
+.review label{
+    margin-top: -3px;
+    font-size: 20px;
+    font-style: italic;
+    width: 40%;
+}
+
+.review h3{
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    width: 40%;
+}
+
+.review label, h3{
+    display: inline;
+}
+
+.review p {
+    text-indent: 50px;
 }

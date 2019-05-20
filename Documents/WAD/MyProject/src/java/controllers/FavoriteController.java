@@ -5,10 +5,21 @@
  */
 package controllers;
 
-import static domain.DrivetrainDAO.computePopularity;
+import domain.Car;
+import domain.DBConnection;
+import domain.Drivetrain;
+import static domain.DrivetrainDAO.getDrivetrains;
+import domain.Favorite;
+import static domain.FavoritesDAO.addFavorite;
+import static domain.FavoritesDAO.getUserFavorites;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.NamingException;
@@ -21,7 +32,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author andrei
  */
-public class LogoutController extends HttpServlet {
+public class FavoriteController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,16 +43,30 @@ public class LogoutController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NamingException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         
-        request.getSession().setAttribute("USER", null);
-        request.getSession().setAttribute("FAVORITES", null);
-        request.getSession().setAttribute("ADMIN", null);
-        request.getSession().setAttribute("OWNER", null);
-        request.getRequestDispatcher("login_register.jsp").forward(request, response);
+        ArrayList<Drivetrain> drivetrains = (ArrayList<Drivetrain>) getDrivetrains();
+        ArrayList<Favorite> favorites = (ArrayList<Favorite>) request.getSession().getAttribute("FAVORITES");
+        String userEmail = (String) request.getSession().getAttribute("USER");
+        Favorite f = null;
         
+        if(userEmail != null){
+            for(Drivetrain d : drivetrains){
+                String car = d.getCarModel() + " " + d.getEngine() + " " + d.getTransmission() + " " + d.getPower();
+                if(request.getParameter(car) != null){
+                    if(!addFavorite(userEmail, d.getCarModel(), d.getEngine(), d.getTransmission(), d.getPower())){
+                        request.setAttribute("err", "You already added this car to favorites!");
+                    }
+                }
+            }
+        }
+        //favorites.add(f);
+        request.getRequestDispatcher("account.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -59,9 +84,9 @@ public class LogoutController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NamingException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FavoriteController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FavoriteController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -79,9 +104,9 @@ public class LogoutController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NamingException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FavoriteController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FavoriteController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

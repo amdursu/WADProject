@@ -5,8 +5,8 @@
  */
 package controllers;
 
-import static classes.DBHandler.login;
-import static classes.DBHandler.register;
+import static domain.DBHandler.login;
+import static domain.DBHandler.register;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -39,7 +39,7 @@ public class RegistrationController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             if(register(request.getParameter("name"), request.getParameter("surname"), request.getParameter("email"), request.getParameter("pass"))){
-                request.getRequestDispatcher("index.html").forward(request, response);
+                request.getRequestDispatcher("account.jsp").forward(request, response);
             }
             else{
                 String message = "Email already exists!";

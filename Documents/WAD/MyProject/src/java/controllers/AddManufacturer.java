@@ -5,23 +5,29 @@
  */
 package controllers;
 
-import static domain.DrivetrainDAO.computePopularity;
+import domain.Manufacturer;
+import static domain.ManufacturersDAO.addManufacturer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author andrei
  */
-public class LogoutController extends HttpServlet {
+@MultipartConfig
+public class AddManufacturer extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,12 +42,17 @@ public class LogoutController extends HttpServlet {
             throws ServletException, IOException, NamingException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         
-        request.getSession().setAttribute("USER", null);
-        request.getSession().setAttribute("FAVORITES", null);
-        request.getSession().setAttribute("ADMIN", null);
-        request.getSession().setAttribute("OWNER", null);
-        request.getRequestDispatcher("login_register.jsp").forward(request, response);
+        ArrayList<Manufacturer> manufacturers = (ArrayList<Manufacturer>) getServletContext().getAttribute("manufacturers");
         
+        String name = request.getParameter("manufacturer");
+        
+        Part image = request.getPart("image");
+        String fileName = Paths.get(image.getSubmittedFileName()).getFileName().toString();
+        String path = "img/manufacturers/" + fileName; 
+        
+        addManufacturer(name, path);
+        Manufacturer m = new Manufacturer(name, path);
+        manufacturers.add(m);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -59,9 +70,9 @@ public class LogoutController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NamingException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddManufacturer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddManufacturer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -79,9 +90,9 @@ public class LogoutController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NamingException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddManufacturer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(LogoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddManufacturer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
