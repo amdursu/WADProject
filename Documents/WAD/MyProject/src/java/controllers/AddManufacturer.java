@@ -53,6 +53,7 @@ public class AddManufacturer extends HttpServlet {
         addManufacturer(name, path);
         Manufacturer m = new Manufacturer(name, path);
         manufacturers.add(m);
+        request.getRequestDispatcher("manufacturers.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

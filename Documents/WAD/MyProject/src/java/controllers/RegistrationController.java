@@ -39,12 +39,12 @@ public class RegistrationController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             if(register(request.getParameter("name"), request.getParameter("surname"), request.getParameter("email"), request.getParameter("pass"))){
-                request.getRequestDispatcher("account.jsp").forward(request, response);
+                request.getRequestDispatcher("home.jsp").forward(request, response);
             }
             else{
                 String message = "Email already exists!";
                 request.setAttribute("message", message);
-                request.getRequestDispatcher("register_fail.jsp").forward(request, response);
+                request.getRequestDispatcher("login_register.jsp").forward(request, response);
             }
             
         }

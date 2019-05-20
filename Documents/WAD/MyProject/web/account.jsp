@@ -41,6 +41,11 @@
             <form action="ModelController" method="post">
                 <div class="row rand">
                 <% 
+                    if(favorites.size() == 0){ %>
+                    <div class="nofav">
+                        <h3>You have not added any car to favorites</h3>
+                    </div>
+                    <% }
                     int i = 0;
                     for(Favorite f : favorites){
                         String car = f.getCar().getManufacturer() + " " + f.getCar().getModel();

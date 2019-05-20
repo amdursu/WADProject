@@ -90,6 +90,10 @@
             </div>
             <div class="reviews">
                 <h2>Reviews</h2><br><br><br>
+                <% if(request.getSession().getAttribute("USER") == null){ %>
+                <div class="noreview">
+                    <h3>You must be logged in to add a review!</h3>
+                </div> <% } %>
                 <% if(request.getSession().getAttribute("USER") != null){ %>
                 <div class="bar"></div>
                 <form action="AddReview" method="post">

@@ -254,8 +254,13 @@ footer img{
 }
 
 .err{
+    margin-top: 20px;
     width: 50%;
     margin-left: 20px;
+    border: 0px solid white;
+    border-radius: 5px;
+    background-color: #EC8779;
+    text-align: center;
 }
 
 .ef{
@@ -733,4 +738,27 @@ footer img{
 
 .review p {
     text-indent: 50px;
+}
+
+.nofav{
+    width: 100%;
+    height: 100%;
+    font-style:  italic;
+    text-align: center;
+}
+
+.nofav h3{
+    position: absolute;
+    top: 45%;
+    right: 32%;
+}
+
+.noreview{
+    width: 100%;
+    font-style: italic;
+}
+
+.noreview h3{
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

@@ -51,7 +51,7 @@ public class AddDrivetrain extends HttpServlet {
         Drivetrain d = new Drivetrain(model, engine, transmission, Integer.parseInt(power), Integer.parseInt(torque), 0);
         
         addDrivetrain(model, engine, transmission, power, torque);
-        
+        request.getRequestDispatcher("manufacturers.jsp").forward(request, response);
         
     }
 

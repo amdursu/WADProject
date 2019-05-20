@@ -8,10 +8,13 @@ package controllers;
 import domain.Car;
 import domain.DBConnection;
 import domain.Drivetrain;
+import domain.DrivetrainDAO;
+import static domain.DrivetrainDAO.computePopularity;
 import static domain.DrivetrainDAO.getDrivetrains;
 import domain.Favorite;
 import static domain.FavoritesDAO.addFavorite;
 import static domain.FavoritesDAO.getUserFavorites;
+import domain.PopularityItem;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -65,7 +68,10 @@ public class FavoriteController extends HttpServlet {
                 }
             }
         }
-        //favorites.add(f);
+        
+        computePopularity();
+        ArrayList<PopularityItem> popularFavorites = DrivetrainDAO.topFavoriteCars();
+        getServletContext().setAttribute("top", popularFavorites);
         request.getRequestDispatcher("account.jsp").forward(request, response);
     }
 

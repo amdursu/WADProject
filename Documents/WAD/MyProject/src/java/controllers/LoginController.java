@@ -76,7 +76,7 @@ public class LoginController extends HttpServlet {
             else{
                 String message = "Wrong email and password combination!";
                 request.setAttribute("mess", message);
-                request.getRequestDispatcher("login_fail.jsp").forward(request, response);
+                request.getRequestDispatcher("login_register.jsp").forward(request, response);
             }
     }
 

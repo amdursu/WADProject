@@ -55,7 +55,7 @@ public class AddCar extends HttpServlet {
         cars.add(c);
         
         addCar(manufacturer, model, path, description);
-        
+        request.getRequestDispatcher("manufacturers.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

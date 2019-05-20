@@ -13,9 +13,15 @@
       <%@include file="header.jsp" %>
       <div class="container-fluid">
         <h1>Please sign in or create a new account</h1>
+        
         <div class="row">
           <div class="col-md-6 logreg">
             <h3>Sign in</h3>
+            <% if(request.getAttribute("mess") != null) { %>
+            <div class="err">
+                <p style="color: #CA2B2B"><%= request.getAttribute("mess")%></p>
+            </div>
+            <% } %>
             <form class="login" action="LoginController" method="post">
               <div class="formelem">
                 <label for="mail">Email: </label>
@@ -32,6 +38,11 @@
           </div>
           <div class="col-md-6 logreg">
             <h3>Register</h3>
+            <% if(request.getAttribute("message") != null) { %>
+            <div class="err">
+                <p style="color: #CA2B2B"><%= request.getAttribute("message")%></p>
+            </div>
+            <% } %>
             <form class="register" action="RegistrationController" method="post" onsubmit="return validatePassword();">
               <div class="formelem">
                 <label for="name">Name: </label>
